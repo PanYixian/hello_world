@@ -16,6 +16,7 @@ else:
 print('pls for taking part in')
 
 ___________________________________________________________________________________________________________________________________________________
+#interesting things about string in python
 
 >>> name = 'panyixian'
 >>> name[1]
@@ -24,3 +25,41 @@ ________________________________________________________________________________
 'an'
 >>> name[:3]
 'pan'
+
+___________________________________________________________________________________________________________________________________________________
+
+
+#cube root of a real nunmber
+
+num = float(input('pls enter a real number: '))
+epsilon = 0.0001
+low = 0
+high = abs(num)
+guess = (low + high) / 2
+
+if abs(num) > 1:
+    while abs(abs(num) - guess**3) > epsilon:
+        if abs(num) > guess**3:
+            low = guess
+            guess = (low + high) / 2
+        else:
+            high = guess
+            guess = (low + high) / 2
+            
+if abs(num) > 0 and abs(num) < 1:
+    low = abs(num)
+    high = 1
+    guess = (low + high) / 2
+    while abs(abs(num) - guess**3) > epsilon:
+        if abs(num) > guess**3:
+            low = guess
+            guess = (low + high) / 2
+        else:
+            high = guess
+            guess = (low + high) / 2
+
+if num < 0:
+    guess = - guess
+
+print('the cube root of ' + str(num) + ' is ' + str(guess))
+

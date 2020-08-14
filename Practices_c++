@@ -1,5 +1,6 @@
 ___________________________________________________________________________________________________________________________________________________
 #hailstone
+#the judgement inside while loop of the function is really beautiful.
 
 void len_hailstone(int n){
     
@@ -26,6 +27,7 @@ int main() {
 
 ___________________________________________________________________________________________________________________________________________________
 #bubble sort
+#pointer. array cannot be passed into functions directly, so passing address.
 
 void bubbleSort(int * arr, int length){
     for (int i = 0; i < length - 1; i++) {

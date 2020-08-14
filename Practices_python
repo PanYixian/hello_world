@@ -1,1 +1,15 @@
 #comment
+
+x = float(input('pls enter x: '))
+y = float(input('pls enter y: '))
+
+if x == y:
+    print('x is equal to y')
+    if y != 0:
+        print('and x/y is', x/y)
+elif x < y:
+    print('x is smaller than y')
+else:
+    print('x is bigger than y')
+    
+print('pls for taking part in')

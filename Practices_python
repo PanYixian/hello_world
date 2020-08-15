@@ -81,7 +81,22 @@ def fact_recur(n):
 
 ___________________________________________________________________________________________________________________________________________________
 
+#hanoi tower-recursion
 
+def printMove(fr, to):
+    print('move from ' + str(fr) + ' to ' + str(to))
+
+def makeMove(n, fr, to, spare):
+    if n == 1:
+        printMove(fr, to)
+    else:
+        makeMove(n-1, fr, spare, to)
+        makeMove(1, fr, to, spare)
+        makeMove(n-1, spare, to, fr)
+
+n = int(input('pls enter the number of disks: '))
+print('it takes following steps to move all the disks from Tower T1 to Tower T2: ')
+makeMove(n, 'T1', 'T2', 'T3')
 
 ___________________________________________________________________________________________________________________________________________________
 

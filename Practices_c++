@@ -192,7 +192,55 @@ int main() {
 
 
 ___________________________________________________________________________________________________________________________________________________
+#passing an array into a function is already passing address, it functions like pointer
 
+#include <iostream>
+using namespace std;
+
+
+struct student {
+    string name;
+    int age;
+    int score;
+};
+
+void bubbleSort(student stud[], int len){
+    for (int i = 0; i < len - 1; i++) {
+        for (int j = i; j < len; j++) {
+            if (stud[i].age > stud[j].age) {
+                student temp = stud[i];
+                stud[i] = stud[j];
+                stud[j] = temp;
+            }
+        }
+    }
+}
+
+void printList(student stud[], int len){
+    for (int i = 0; i < len; i++) {
+        cout << stud[i].name << " " << stud[i].age << " " << stud[i].score << endl;
+    }
+}
+
+int main() {
+    
+    student stud[] = {
+        {"Ana", 23, 90},
+        {"John", 22, 89},
+        {"May", 24, 88},
+        {"Kevin", 21, 98},
+        {"Lay", 25, 94},
+    };
+    
+    int len = sizeof(stud) / sizeof(stud[0]);
+    
+    printList(stud, len);
+    bubbleSort(stud, len);
+    cout << "------------------------------" << endl;
+    printList(stud, len);
+    
+    return 0;
+}
 
 
 ___________________________________________________________________________________________________________________________________________________

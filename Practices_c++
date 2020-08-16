@@ -141,16 +141,54 @@ int main()
     for (int i = 0; i < n; i++) {
         cout << atom_type[i] << ' ' << mol[i][2] << endl;
     }
-    
-
+   
 //    fout.open("outputFile.txt");
-
-
 }
 
 
 ___________________________________________________________________________________________________________________________________________________
+#value passing and address passing into function, the use of pointer
 
+#include <iostream>
+using namespace std;
+
+
+struct student {
+    string name;
+    int age;
+    int score;
+};
+
+//pass the value into function, value in main not gonna be changed
+void printStudent_1(student s1){
+    s1.age = 28;
+    cout << "----------apply print function 1----------" << endl;
+    cout << "Name: " << s1.name << endl;
+    cout << "Age: " << s1.age << endl;
+    cout << "Score: " << s1.score << endl;
+}
+
+//pass the address into function by pointer, value in main changes
+void printStudent_2(student *s1){
+    s1->age = 28;
+    cout << "----------apply print function 2----------" << endl;
+    cout << "Name: " << s1->name << endl;
+    cout << "Age: " << s1->age << endl;
+    cout << "Score: " << s1->score << endl;
+}
+
+
+int main() {
+    
+    student s1 = {"Ana", 23, 90};
+    cout << "before applying function, age = " << s1.age << endl;
+    printStudent_1(s1);
+    cout << "after applying function 1, age = " << s1.age << endl;
+    printStudent_2(&s1);
+    cout << "after applying function 2, age = " << s1.age << endl;
+    
+    return 0;
+}
 
 
 ___________________________________________________________________________________________________________________________________________________

@@ -84,6 +84,80 @@ int main() {
 
 
 ___________________________________________________________________________________________________________________________________________________
+#read files
+
+#include <string>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ifstream fin;
+    ofstream fout;
+    
+//    string str = "0.12345";
+//    double num = stod(str);
+//    num++;
+//    cout << num << endl;
+
+    fin.open("CNH.xyz");
+    if(fin.fail())
+        cout << "File failed to open." << endl;
+
+    char buf[1024] = {0};
+
+//    while (fin.getline(buf, sizeof(buf))) {
+//        cout << buf << endl;
+//    }
+
+    fin >> buf;
+    int n = stoi(buf);
+    double mol[n][3];
+    string atom_type [n];
+    
+//    while (fin >> buf){
+//        for (int i = 0; i < n; i++) {
+//            fin >> buf;
+//            atom_type[i] = buf;
+//            for (int j = 1; j <= 3; j++) {
+//                fin >> buf;
+//                mol[i][j] = stod(buf);
+//            }
+//        }
+//    }
+    
+    do {
+        for (int i = 0; i < n; i++) {
+            fin >> buf;
+            atom_type[i] = buf;
+            for (int j = 0; j < 3; j++) {
+                fin >> buf;
+                mol[i][j] = stod(buf);
+            }
+        }
+    } while (fin >> buf);
+    
+    for (int i = 0; i < n; i++) {
+        cout << atom_type[i] << ' ' << mol[i][2] << endl;
+    }
+    
+
+//    fout.open("outputFile.txt");
+
+
+}
+
+
+___________________________________________________________________________________________________________________________________________________
+
+
+
+___________________________________________________________________________________________________________________________________________________
+
+
+
+___________________________________________________________________________________________________________________________________________________
 
 
 
